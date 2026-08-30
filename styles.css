@@ -1201,6 +1201,140 @@ button, input, textarea, select {
   white-space: pre-wrap;
 }
 
+/* --- Workflow Showcase Image --- */
+.workflow-showcase-image {
+  margin-top: 3.5rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-bright);
+  box-shadow: var(--shadow-card), 0 0 30px rgba(0, 242, 254, 0.08);
+}
+
+.workflow-showcase-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* --- Social Media Links Section (Under How I Build) --- */
+.social-links-section {
+  margin-top: 3.5rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border-dim);
+}
+
+.social-links-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.social-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-bright), transparent);
+}
+
+.social-links-label {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-cyan);
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.social-links-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.social-link-item {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-dim);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(8px);
+}
+
+.social-link-item svg {
+  width: 26px;
+  height: 26px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.social-link-item:hover {
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  background: rgba(0, 242, 254, 0.08);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 242, 254, 0.2), 0 0 0 1px rgba(0, 242, 254, 0.3);
+}
+
+.social-link-item:hover svg {
+  transform: scale(1.15);
+}
+
+/* Tooltip */
+.social-link-item::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-bright);
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 10;
+}
+
+.social-link-item:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Responsive social links */
+@media (max-width: 768px) {
+  .social-links-grid {
+    gap: 1rem;
+  }
+
+  .social-link-item {
+    width: 52px;
+    height: 52px;
+  }
+
+  .social-link-item svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .social-links-label {
+    font-size: 0.9rem;
+  }
+}
+
 /* --- Footer --- */
 .footer {
   border-top: 1px solid var(--border-dim);
